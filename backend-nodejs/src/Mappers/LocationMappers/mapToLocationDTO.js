@@ -1,9 +1,12 @@
 const LocationDTO = require('../../Models/DTO/LocationDTO');
 
 function mapToLocationDTO(location){
-    return new LocationDTO(location.countryName,
+    return new LocationDTO(
+        location.countryName,
         location.cityName,
-        location.address);
+        location.address
+    );
 }
 
 module.exports = mapToLocationDTO;
+

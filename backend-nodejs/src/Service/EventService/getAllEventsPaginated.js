@@ -1,9 +1,7 @@
 const mapper = require('../../Mappers');
 const eventRepository = require('../../Repository/EventRepository');
 
-async function getAllEventsPaginated(searchKey, venuesIdList,
-                                     eventTypesList, page,
-                                     pageSize){
+async function getAllEventsPaginated(searchKey, venuesIdList, eventTypesList, page, pageSize) {
 
     const numberOfEvents = await eventRepository.getAllEventsCount(searchKey, venuesIdList, eventTypesList);
     const numberOfPages = Math.floor((numberOfEvents + pageSize - 1) / pageSize);
@@ -14,3 +12,4 @@ async function getAllEventsPaginated(searchKey, venuesIdList,
 }
 
 module.exports = getAllEventsPaginated;
+

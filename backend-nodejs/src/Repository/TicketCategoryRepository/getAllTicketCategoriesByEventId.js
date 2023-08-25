@@ -9,3 +9,4 @@ async function getAllTicketCategoriesByEventId(eventId) {
 }
 
 module.exports = getAllTicketCategoriesByEventId;
+

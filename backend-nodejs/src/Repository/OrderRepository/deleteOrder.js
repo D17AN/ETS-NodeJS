@@ -1,6 +1,6 @@
 const prisma = require('../../PrismaClient/prismaClient');
 
-async function deleteOrder(order){
+async function deleteOrder(order) {
     return prisma.order.delete({
         where: {
             orderID: order.orderID
@@ -17,3 +17,4 @@ async function deleteOrder(order){
 }
 
 module.exports = deleteOrder;
+

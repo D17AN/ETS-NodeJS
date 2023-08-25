@@ -8,3 +8,4 @@ async function getNumberOfPurchasedTicketsForEvent(eventId){
 }
 
 module.exports = getNumberOfPurchasedTicketsForEvent;
+

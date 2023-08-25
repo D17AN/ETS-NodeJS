@@ -9,3 +9,4 @@ async function getUserById(userId) {
 }
 
 module.exports = getUserById;
+

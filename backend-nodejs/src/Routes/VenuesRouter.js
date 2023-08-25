@@ -6,3 +6,4 @@ const router = express.Router();
 router.get('', VenueController.getAllVenues);
 
 module.exports = router;
+

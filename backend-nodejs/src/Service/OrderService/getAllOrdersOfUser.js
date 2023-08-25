@@ -16,3 +16,4 @@ async function getAllOrdersOfUser(userId){
 }
 
 module.exports = getAllOrdersOfUser;
+

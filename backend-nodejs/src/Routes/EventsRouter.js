@@ -7,3 +7,4 @@ router.get('', EventController.getAllEvents);
 router.get('/:eventId', EventController.getEventById);
 
 module.exports = router;
+

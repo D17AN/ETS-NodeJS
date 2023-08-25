@@ -9,3 +9,4 @@ async function getAllEvents(){
 }
 
 module.exports = getAllEvents;
+

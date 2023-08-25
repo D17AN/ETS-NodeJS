@@ -18,3 +18,4 @@ async function getEventById(eventId){
 }
 
 module.exports = getEventById;
+
