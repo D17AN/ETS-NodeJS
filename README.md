@@ -26,7 +26,7 @@ Ticket system platform, where an user can:
 </br></br>
 ![mainPageFilteredEvents2](https://github.com/D17AN/ETS-NodeJS/assets/9745845/bf9d496f-e34e-445c-a8cd-3dd89c5d24a1)
 </br></br>
-### Filtered Events + ### Live search
+### Filtered Events \+ Live search
 ![mainPageFilteredEvents3](https://github.com/D17AN/ETS-NodeJS/assets/9745845/b22ccdb9-2650-4d18-9969-6b94564305f0)
 </br></br>
 ### Purchase tickets
