@@ -9,3 +9,4 @@ async function getUserByEmail(userEmail) {
 }
 
 module.exports = getUserByEmail;
+

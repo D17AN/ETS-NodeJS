@@ -11,3 +11,4 @@ process.on('beforeExit', () => {
 });
 
 module.exports = prismaInstance;
+

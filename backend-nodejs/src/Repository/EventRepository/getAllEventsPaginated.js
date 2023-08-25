@@ -1,7 +1,6 @@
 const prisma = require( '../../PrismaClient/prismaClient');
 
-async function getAllEventsPaginated(searchKey, venuesIdList, eventTypesList,
-                                     page, pageSize) {
+async function getAllEventsPaginated(searchKey, venuesIdList, eventTypesList, page, pageSize) {
     
     const queryConditions = {
         where: {},
@@ -42,3 +41,4 @@ async function getAllEventsPaginated(searchKey, venuesIdList, eventTypesList,
 }
 
 module.exports = getAllEventsPaginated;
+

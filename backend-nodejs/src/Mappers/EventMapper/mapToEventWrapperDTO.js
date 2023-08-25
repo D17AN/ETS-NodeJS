@@ -12,3 +12,4 @@ function mapToEventWrapperDTO(eventsList, page, numberOfPages){
 }
 
 module.exports = mapToEventWrapperDTO;
+

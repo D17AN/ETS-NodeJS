@@ -10,16 +10,17 @@ async function updateOrder(req, res){
         const numberOfTickets = Number(req.body.numberOfTickets);
         const orderUpdateRequestBody = new OrderUpdateRequestBodyDTO(ticketCategoryId, numberOfTickets);
         const order = await orderService.updateOrder(userId, orderId, orderUpdateRequestBody);
-        res.json(order);
+        return res.json(order);
     }
     catch(error){
         if (error instanceof Prisma.PrismaClientKnownRequestError) {
             const statusCode = error.code === 'P2002' ? 409 : 500;
-            res.status(statusCode).json({ error: error.message });
+            return res.status(statusCode).json({ error: error.message });
         } else {
-            res.status(400).json({ error: error.message });
+            return res.status(400).json({ error: error.message });
         }
     }
 }
 
 module.exports = updateOrder;
+

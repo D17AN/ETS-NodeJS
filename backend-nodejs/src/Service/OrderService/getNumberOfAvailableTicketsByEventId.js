@@ -15,3 +15,4 @@ async function getNumberOfAvailableTicketsByEventId(eventId){
 }
 
 module.exports = getNumberOfAvailableTicketsByEventId;
+

@@ -20,3 +20,4 @@ function mapToEventDTO(event){
 }
 
 module.exports = mapToEventDTO;
+

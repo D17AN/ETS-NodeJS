@@ -9,3 +9,4 @@ async function getTicketCategoryById(ticketCategoryId) {
 }
 
 module.exports = getTicketCategoryById;
+

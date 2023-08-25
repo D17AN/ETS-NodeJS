@@ -1,6 +1,6 @@
 const prisma = require('../../PrismaClient/prismaClient');
 
-async function getAllOrdersOfUser(userId){
+async function getAllOrdersOfUser(userId) {
     return prisma.order.findMany({
         where: {
             userID: userId
@@ -17,3 +17,4 @@ async function getAllOrdersOfUser(userId){
 }
 
 module.exports = getAllOrdersOfUser;
+

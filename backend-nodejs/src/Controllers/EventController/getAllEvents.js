@@ -16,18 +16,17 @@ async function getAllEvents(req, res){
         const eventDTOWrapper = await eventService.getAllEventsPaginated(searchKey,
             venuesIdList, eventTypesList, page, pageSize);
 
-        res.json(eventDTOWrapper);
+        return res.json(eventDTOWrapper);
     }
     catch(error){
         if (error instanceof Prisma.PrismaClientKnownRequestError) {
             const statusCode = error.code === 'P2002' ? 409 : 500;
-            res.status(statusCode).json({ error: error.message });
-
+            return res.status(statusCode).json({ error: error.message });
         } else {
-            res.status(400).json({ error: error.message });
-
+            return res.status(400).json({ error: error.message });
         }
     }
 }
 
 module.exports = getAllEvents;
+

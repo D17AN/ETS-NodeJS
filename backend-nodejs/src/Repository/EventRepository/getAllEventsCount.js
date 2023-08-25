@@ -31,3 +31,4 @@ async function getAllEventsCount(searchKey, venuesIdList, eventTypesList) {
 }
 
 module.exports = getAllEventsCount;
+

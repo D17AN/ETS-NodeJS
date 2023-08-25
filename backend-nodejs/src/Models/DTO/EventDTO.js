@@ -1,28 +1,28 @@
 class EventDTO {
-    eventId;
-    venue;
-    eventType;
-    eventDescription;
-    eventName;
-    eventImageUrl;
-    startDate;
-    endDate;
-    ticketCategories;
-    constructor(_eventId, _venueDTO,
-                _eventTypeDTO, _eventDescription,
-                _eventName, _eventImageUrl,
-                _startDate, _endDate,
-                _ticketCategoriesDTOList) {
-        this.eventId = _eventId;
-        this.venue = _venueDTO;
-        this.eventType = _eventTypeDTO;
-        this.eventDescription = _eventDescription;
-        this.eventName = _eventName;
-        this.eventImageUrl = _eventImageUrl;
-        this.startDate = _startDate;
-        this.endDate = _endDate;
-        this.ticketCategories = _ticketCategoriesDTOList;
+
+    constructor(
+        eventId,
+        venueDTO,
+        eventTypeDTO,
+        eventDescription,
+        eventName,
+        eventImageUrl,
+        startDate,
+        endDate,
+        ticketCategoriesDTOList
+    ) {
+        this.eventId = eventId;
+        this.venue = venueDTO;
+        this.eventType = eventTypeDTO;
+        this.eventDescription = eventDescription;
+        this.eventName = eventName;
+        this.eventImageUrl = eventImageUrl;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.ticketCategories = ticketCategoriesDTOList;
     }
+
 }
 
 module.exports = EventDTO;
+
