@@ -1,0 +1,194 @@
+.blurred-background {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.popout-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: -25%;
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #de411b #fff;
+}
+
+@keyframes slideOpen {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.popout-open {
+    animation: slideOpen 0.3s ease-in-out forwards;
+}
+
+@keyframes slideClosed {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.popout-close {
+    animation: slideClosed 0.3s ease-in-out forwards;
+}
+
+
+
+.popout-container .close-button{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.popout-container::-webkit-scrollbar {
+    width: 6px; 
+}
+
+.popout-container::-webkit-scrollbar-track {
+    background-color: #fff; 
+}
+
+.popout-container::-webkit-scrollbar-thumb {
+    background-color: #de411b; 
+    border-radius: 3px;
+}
+
+.popout-container::-webkit-scrollbar-thumb:hover {
+    background-color: #b5320c; 
+}
+
+.no-scroll {
+    overflow:hidden;
+}
+
+@media (max-width: 768px) {
+    .popout-container {
+        width: 100%;
+        scrollbar-width: thin; /* Use the browser's default scrollbar */
+        scrollbar-color: #de411b #fff; /* Track color and thumb color */
+    }
+}
+  
+.select-container{
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    border-radius: 8px;
+    top: 15%;
+    margin: 0px auto 30px;
+}
+  
+.select-options-dropdown{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+  
+.select-options-dropdown .btn-text{
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+}
+
+.select-options-dropdown.open .arrow-down{
+    transform: rotate(-180deg);
+}
+
+.select-options-dropdown .arrow-down{
+    display: flex;
+    height: 21px;
+    width: 21px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    background: #de411b;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+  
+.select-options-dropdown.open ~ .filter-options-list-items{
+    display: block;
+}
+
+.filter-options-list-items{
+    position: relative;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+  
+.filter-options-list-items .filter-option-item{
+    display: flex;
+    align-items: flex-start;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 12px 15px;
+    border-radius: 8px;
+    
+}
+  
+.filter-options-list-items .filter-option-item:hover{
+    background-color: #e7e7e8;
+}
+  
+.filter-option-item .filter-option-item-text{
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+}
+  
+.filter-option-item .checkbox{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    max-height: 16px;
+    max-width: 16px;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-right: 12px;
+    border: 1.5px solid #c0c0c0;
+    transition: all 0.3s ease-in-out;
+}
+
+.filter-option-item.checked .check-icon{
+    transform: scale(1);
+}
+
+.filter-option-item.checked .checkbox{
+    background-color: #de411b;
+    border-color: #de411b;
+
+}
+
+.checkbox .check-icon{
+    font-size: 11px;
+    transform: scale(0);
+    color: #fff;
+}
