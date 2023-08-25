@@ -6,11 +6,11 @@ async function deleteOrder(userId, orderId){
     const user = await userRepository.getUserById(userId);
     const order = await orderRepository.getOrderById(orderId);
 
-    if (!user){
+    if (!user) {
         throw new Error(`User with '${userId}' not found.`);
     }
 
-    if (!order){
+    if (!order) {
         throw new Error(`Order with '${orderId}' not found.`);
     }
 

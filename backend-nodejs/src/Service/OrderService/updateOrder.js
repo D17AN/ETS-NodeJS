@@ -7,36 +7,36 @@ async function updateOrder(userId, orderId, orderUpdateRequestBody){
     const user = await userRepository.getUserById(userId);
     const order = await orderRepository.getOrderById(orderId);
 
-    if (!user){
+    if (!user) {
         throw new Error(`User with '${userId}' not found!`);
     }
 
-    if (!order){
+    if (!order) {
         throw new Error(`Order with '${orderId}' not found!`);
     }
 
-    if (order.userID !== user.userID){
+    if (order.userID !== user.userID) {
         throw new Error(`Order with '${orderId}' not found!`);
     }
 
-    if (!orderUpdateRequestBody.ticketCategoryId){
+    if (!orderUpdateRequestBody.ticketCategoryId) {
         orderUpdateRequestBody.ticketCategoryId = order.ticketCategoryID;
     }
 
-    if (!orderUpdateRequestBody.numberOfTickets){
+    if (!orderUpdateRequestBody.numberOfTickets) {
         orderUpdateRequestBody.numberOfTickets = order.numberOfTickets;
     }
-    else if(orderUpdateRequestBody.numberOfTickets <= 0){
+    else if(orderUpdateRequestBody.numberOfTickets <= 0) {
         throw new Error(`The number of tickets must be positive!`);
     }
 
     const ticketCategory = await ticketCategoryRepository.getTicketCategoryById(orderUpdateRequestBody.ticketCategoryId);
 
-    if (!ticketCategory){
+    if (!ticketCategory) {
         throw new Error(`Ticket with id '${orderUpdateRequestBody.ticketCategoryId}' not found!`);
     }
 
-    if (ticketCategory.eventID !== order.TicketCategory.eventID){
+    if (ticketCategory.eventID !== order.TicketCategory.eventID) {
         throw new Error(`Ticket must be from the same event!`);
     }
 
