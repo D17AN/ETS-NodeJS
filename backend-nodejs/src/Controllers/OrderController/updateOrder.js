@@ -3,7 +3,7 @@ const orderService = require('../../Service/OrderService');
 const OrderUpdateRequestBodyDTO = require('../../Models/RequestBodies/OrderUpdateRequestBodyDTO');
 
 async function updateOrder(req, res){
-    try{
+    try {
         const userId = Number(req.params.userId);
         const orderId = Number(req.params.orderId);
         const ticketCategoryId = Number(req.body.ticketCategoryId);
@@ -12,7 +12,7 @@ async function updateOrder(req, res){
         const order = await orderService.updateOrder(userId, orderId, orderUpdateRequestBody);
         return res.json(order);
     }
-    catch(error){
+    catch(error) {
         if (error instanceof Prisma.PrismaClientKnownRequestError) {
             const statusCode = error.code === 'P2002' ? 409 : 500;
             return res.status(statusCode).json({ error: error.message });

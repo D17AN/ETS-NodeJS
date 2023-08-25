@@ -4,7 +4,7 @@ const userRepository = require('../../Repository/UserRepository');
 
 async function getAllOrdersOfUser(userId){
     const user = await userRepository.getUserById(userId);
-    if (!user){
+    if (!user) {
         throw new Error('User not found!');
     }
 

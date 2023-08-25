@@ -10,25 +10,25 @@ async function addOrder(userId, orderAddRequestBody){
     const event = await eventRepository.getEventById(orderAddRequestBody.eventId);
     const ticketCategory = await ticketCategoryRepository.getTicketCategoryById(orderAddRequestBody.ticketCategoryId);
 
-    if (!user){
+    if (!user) {
         throw new Error(`User with id '${userId}' not found.`);
     }
 
-    if (!event){
+    if (!event) {
         throw new Error(`Event with id '${orderAddRequestBody.eventId}' not found.`);
     }
 
-    if(!ticketCategory){
+    if(!ticketCategory) {
         throw new Error(`Ticket with id '${orderAddRequestBody.orderId} not found.`);
     }
 
-    if (orderAddRequestBody.numberOfTickets <= 0){
+    if (orderAddRequestBody.numberOfTickets <= 0) {
         throw new Error(`The number of tickets must be positive.`);
     }
 
     const numberOfAvailableTickets = await getNumberOfAvailableTicketsByEventId(event.eventID);
 
-    if (orderAddRequestBody.numberOfTickets > numberOfAvailableTickets){
+    if (orderAddRequestBody.numberOfTickets > numberOfAvailableTickets) {
         throw new Error(`Only ${numberOfAvailableTickets} tickets left.`);
     }
 

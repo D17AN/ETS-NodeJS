@@ -4,7 +4,7 @@ const getNumberOfPurchasedTicketsForEvent = require('./getNumberOfPurchasedTicke
 async function getNumberOfAvailableTicketsByEventId(eventId){
     const event = (await eventRepository.getEventById(eventId));
 
-    if (!event){
+    if (!event) {
         throw new Error(`Event with id '${eventId}'not found.`);
     }
 
