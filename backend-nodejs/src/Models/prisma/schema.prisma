@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  eventID          BigInt           @id(map: "PK__Event__2DC7BD697B7EA2CB") @default(autoincrement())
+  venueID          BigInt
+  eventTypeID      BigInt
+  eventDescription String?          @db.VarChar(256)
+  eventName        String           @db.VarChar(256)
+  eventImageURL    String?          @db.VarChar(1000)
+  startDate        DateTime         @db.DateTime
+  endDate          DateTime         @db.DateTime
+  EventType        EventType        @relation(fields: [eventTypeID], references: [eventTypeID], onDelete: Cascade, map: "FK__Event__eventType__70A8B9AE")
+  Venue            Venue            @relation(fields: [venueID], references: [venueID], onDelete: Cascade, map: "FK__Event__venueID__6FB49575")
+  TicketCategory   TicketCategory[]
+}
+
+model EventType {
+  eventTypeID   BigInt  @id(map: "PK__EventTyp__04ACC49D75245BB9") @default(autoincrement())
+  eventTypeName String  @unique(map: "UQ__EventTyp__F1C27EB16381C619") @db.VarChar(256)
+  Event         Event[]
+}
+
+model Location {
+  locationID  BigInt @id(map: "PK__Location__30646B0E450E04F5") @default(autoincrement())
+  countryName String @db.VarChar(256)
+  cityName    String @db.VarChar(256)
+  address     String @db.VarChar(256)
+  Venue       Venue?
+}
+
+model Order {
+  orderID          BigInt         @id(map: "PK__Order__0809337DB1B8EE4C") @default(autoincrement())
+  userID           BigInt
+  ticketCategoryID BigInt
+  orderedAt        DateTime       @db.DateTime
+  numberOfTickets  Int
+  totalPrice       Decimal        @db.Decimal(20, 2)
+  TicketCategory   TicketCategory @relation(fields: [ticketCategoryID], references: [ticketCategoryID], onDelete: Cascade, map: "FK__Order__ticketCat__793DFFAF")
+  User             User           @relation(fields: [userID], references: [userID], onDelete: Cascade, map: "FK__Order__userID__7849DB76")
+}
+
+model sysdiagrams {
+  name         String @db.NVarChar(128)
+  principal_id Int
+  diagram_id   Int    @id(map: "PK__sysdiagr__C2B05B61BF3DE833") @default(autoincrement())
+  version      Int?
+  definition   Bytes?
+
+  @@unique([principal_id, name], map: "UK_principal_name")
+}
+
+model TicketCategory {
+  ticketCategoryID BigInt  @id(map: "PK__TicketCa__56F2E67A38FB5946") @default(autoincrement())
+  eventID          BigInt
+  ticketType       String  @db.VarChar(256)
+  price            Decimal @db.Decimal(10, 2)
+  Order            Order[]
+  Event            Event   @relation(fields: [eventID], references: [eventID], onDelete: Cascade, map: "FK__TicketCat__event__74794A92")
+
+  @@unique([eventID, ticketType], map: "UC_TicketCategory_Event")
+}
+
+model User {
+  userID         BigInt  @id(map: "PK__User__CB9A1CDF69801459") @default(autoincrement())
+  userName       String  @db.VarChar(256)
+  userEmail      String  @unique(map: "UQ__User__D54ADF553660F77C") @db.VarChar(256)
+  userRole       String  @default("customer", map: "DF__User__userRole__634EBE90") @db.VarChar(256)
+  salt           String? @db.VarChar(20)
+  hashedPassword String  @db.VarChar(256)
+  Order          Order[]
+}
+
+model Venue {
+  venueID    BigInt   @id(map: "PK__Venue__4DDFB71FBEAADC48") @default(autoincrement())
+  locationID BigInt   @unique(map: "UQ__Venue__30646B0F25795AE5")
+  type       String   @db.VarChar(256)
+  capacity   Int
+  Event      Event[]
+  Location   Location @relation(fields: [locationID], references: [locationID], onDelete: Cascade, map: "FK__Venue__locationI__69FBBC1F")
+}
