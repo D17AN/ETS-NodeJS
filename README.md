@@ -34,15 +34,15 @@ Ticket system platform, where an user can:
 </br></br>
 ![mainPageOrder2](https://github.com/D17AN/ETS-NodeJS/assets/9745845/c88497b4-a894-4ebd-8646-ff945521d49c)
 </br></br>
-# Order Page
+### Order Page
 ![orderPage1](https://github.com/D17AN/ETS-NodeJS/assets/9745845/3240557c-b56c-4826-914d-56188c9f227f)
 </br></br>
-# Edit Order
+### Edit Order
 ![orderPageEdit1](https://github.com/D17AN/ETS-NodeJS/assets/9745845/e3a92f73-0045-40ce-8732-8ee7649699e2)
 </br></br>
 ![orderPageEdit2](https://github.com/D17AN/ETS-NodeJS/assets/9745845/aa8d84fa-a340-480d-b7f3-eae8cdc67e42)
 </br></br>
-# Delete Order
+### Delete Order
 ![orderPageDeleteOrder](https://github.com/D17AN/ETS-NodeJS/assets/9745845/2d10aa07-75f8-4f35-ae62-f414a7cd11c9)
 
 
